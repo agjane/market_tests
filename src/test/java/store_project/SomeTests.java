@@ -31,7 +31,7 @@ public class SomeTests {
         sleep(2000);
         $x("//button[@class='item__all-size']").click();
         $x("(//div[@class='table__col'])[19]").scrollTo();
-        // Выбираем размер S
+        // Выбираем размер M
         $x("//button[@class='sizeguide__close']").click();
         $x("(//div[@class='product-item-scu-item-text item__size item__size__js'])[2]").click();
         sleep(5000);
