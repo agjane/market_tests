@@ -2,14 +2,10 @@ package store_project;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class SomeTests {
     @BeforeAll
@@ -28,6 +24,11 @@ public class SomeTests {
         $x("(//button[@class='item__thumb-btn'])[3]").click();
         $x("//div[@class='item__info animate']").shouldBe(Condition.visible);
         $x("(//button[@class='accordion__btn'])[3]").click();
+        sleep(2000);
+        $x("(//button[@class='accordion__btn'])[4]").click();
+        sleep(2000);
+        $x("(//button[@class='accordion__btn'])[1]").click();
+        sleep(2000);
         $x("//button[@class='item__all-size']").click();
         $x("(//div[@class='table__col'])[19]").scrollTo();
         // Выбираем размер S
