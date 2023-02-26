@@ -21,16 +21,18 @@ public class SomeTests {
     void Project() {
         // Открываем магазин, закрываем нижнюю плажку, переходим в каталог
         open ("https://larne.ru");
-        $(".modal_close").shouldBe(Condition.visible).click();
+        $x("//span[@class='modal_close']").shouldBe(Condition.visible).click();
         open("/catalog/platya/");
         // Открываем платье с пролистыванием вниз, смотрим миниатюры платьев, выбираем таблицу размеров
-        $("[href='/catalog/platya/plate-mini-s-drapirovannoy-yubkoy-i-tsvetochnym-printom/']").hover().click();
-        $(".item__thumb").sibling(1).click();
-        $("[class='item__info animate']").shouldBe(Condition.visible);
-        $(".item__all-size").click();
+        $x("(//a[@class='catalog-item__img-wrap'])[10]").hover().click();
+        $x("(//button[@class='item__thumb-btn'])[3]").click();
+        $x("//div[@class='item__info animate']").shouldBe(Condition.visible);
+        $x("(//button[@class='accordion__btn'])[3]").click();
+        $x("//button[@class='item__all-size']").click();
+        $x("(//div[@class='table__col'])[19]").scrollTo();
         // Выбираем размер S
-        $(".sizeguide__close").shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
-        $(".item__thumb").click();
+        $x("//button[@class='sizeguide__close']").click();
+        $x("(//div[@class='product-item-scu-item-text item__size item__size__js'])[2]").click();
         sleep(5000);
     }
 }
